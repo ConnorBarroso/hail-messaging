@@ -20,7 +20,6 @@ function App() {
   const [initializing, setInitializing] = useState(true)
 
   useEffect(()=> {
-    console.log('rendered!')
     const unsubscribe = auth.onAuthStateChanged(user => {
       if(user) {
         setUser(user)
@@ -52,7 +51,7 @@ function App() {
   return (
     
     <div className="App">
-      <Header/>
+      <Header user={user}/>
         {
           user ? (
             null

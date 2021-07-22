@@ -22,7 +22,6 @@ const Channel = ({ user= null, db = null }) =>{
                     ...doc.data(),
                     id: doc.id,
                 }))
-                console.log(data)
                 setMessages(data)
                 autoBottomScroll()
             })

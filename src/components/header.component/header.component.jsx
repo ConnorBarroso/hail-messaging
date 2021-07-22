@@ -9,7 +9,7 @@ import './header.styles.scss'
 
 
 
-const Header = () => {
+const Header = (user) => {
     
     const logout = async ()=>{
         try{
@@ -18,6 +18,7 @@ const Header = () => {
             console.log(error.message)
         }
     }
+    console.log(user)
     
     return(
        <div className='header'>
@@ -26,9 +27,13 @@ const Header = () => {
                <div className='title'>HAIL MESSAGING!</div>
            </div>
         
-        <div className='button-container'>
-            <LoginLogout className='button' onClick={logout}>Logout</LoginLogout>
-        </div>
+       
+            <div className='button-container'>
+                {
+                    user && (<LoginLogout className='button' onClick={logout}>Logout</LoginLogout>) && null
+                }
+            </div> 
+        
     </div> 
     )
     
