@@ -1,0 +1,23 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 5ch;
+  width: 80vw;
+  .title-container {
+    display: flex;
+    .logo {
+      height: 40px;
+      fill: white;
+    }
+    .title {
+      color: white;
+      margin: 11px 0px 0px 10px;
+    }
+  }
+  .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
