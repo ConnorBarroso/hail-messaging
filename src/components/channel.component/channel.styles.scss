@@ -1,0 +1,104 @@
+.channel {
+  background-color: #20639b;
+  width: 80vw;
+  height: 95ch;
+  padding: 5px 5px 0px 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  .message-list-container {
+    overflow-y: scroll;
+    width: 100%;
+    height: 90%;
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+    &::-webkit-scrollbar-track {
+      background-color: #173f5f;
+      border-radius: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #189ad3;
+      border-radius: 5px;
+      border: solid #173f5f;
+    }
+    .message-list {
+      margin: 0px;
+      display: flex;
+      flex-direction: column;
+      .message-container {
+        width: auto;
+        margin: 5px 2px;
+        border-bottom: solid;
+        border-color: #173f5f;
+        border-width: 3px;
+        padding-top: 3px;
+      }
+    }
+  }
+
+  .form {
+    width: 100%;
+    justify-content: center;
+    padding: 15px 0px 0 0px;
+    display: flex;
+    flex-direction: row;
+
+    .text-box {
+      border-style: none;
+      border-radius: 10px;
+      background-color: #189ad3;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      width: 100%;
+      height: 30px;
+      padding: 10px;
+
+      .input {
+        border-style: none;
+        font-size: 20px;
+        color: #ffffff;
+        background-color: transparent;
+        border-image: none;
+        width: 80%;
+        overflow-wrap: normal;
+      }
+
+      .buttons-container {
+        padding-right: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+        .send-button {
+          border-radius: 25%;
+          border-style: none;
+          background-color: #20639b;
+
+          .send-icon {
+            height: 20px;
+            fill: #189ad3;
+          }
+        }
+      }
+    }
+  }
+}
+::placeholder {
+  color: white;
+}
+input:focus-visible {
+  border-style: none;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0;
+  cursor: default;
+}
