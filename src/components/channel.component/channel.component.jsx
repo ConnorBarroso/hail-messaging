@@ -12,6 +12,7 @@ const Channel = ({ user= null, db = null }) =>{
     const { uid, displayName, photoURL } = user
 
     useEffect(()=>{
+        //when there is a change in the fire store Messages collection re-render the messages array with the most recent hundred snapshot objects. Then set the scrollbar to the bottom.
         if(db){
             const unsubscribe = db
             .collection('Messages')
@@ -31,7 +32,7 @@ const Channel = ({ user= null, db = null }) =>{
 
     const handleOnSubmit = e =>{
         e.preventDefault();
-
+        //on submit create a new object in the Messages collection with the input field text, timestamp, uid, displayname and photoURL then set the input to an empty string.
         if(db){
             db.collection('Messages').add({
                 text: newMessage,
@@ -45,11 +46,13 @@ const Channel = ({ user= null, db = null }) =>{
         
     }
     const handleOnChange = e =>{
+        //set the message state to the text in the input field
         setNewMessage(e.target.value)
     }
     
     
-   const autoBottomScroll = ()=>{   
+   const autoBottomScroll = ()=>{
+       // set the top of the messageListContainer scrollbar to be the scrollheight - the client height. Setting it to the bottom of the window.    
        const messageListContainer = document.querySelector('.message-list-container')
         return ( 
             messageListContainer.scrollTop = messageListContainer.scrollHeight - messageListContainer.clientHeight 

@@ -12,13 +12,14 @@ import './header.styles.scss'
 const Header = (user) => {
     
     const logout = async ()=>{
+        //attempts to call firebase sign out function. 
         try{
             await firebase.auth().signOut()
         }catch(error) {
             console.log(error.message)
         }
     }
-    console.log(user)
+    
     
     return(
        <div className='header'>
@@ -30,6 +31,7 @@ const Header = (user) => {
        
             <div className='button-container'>
                 {
+                    //mount the logout button when there is a user. 
                     user && (<LoginLogout className='button' onClick={logout}>Logout</LoginLogout>) && null
                 }
             </div> 

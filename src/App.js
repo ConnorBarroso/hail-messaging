@@ -10,7 +10,7 @@ import Channel from './components/channel.component/channel.component';
 
 import './App.css';
 
-firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig); //initializes firebase using settings defined in firebase-config.js
 const db = firebase.firestore()
 
 const auth = firebase.auth()
@@ -19,7 +19,7 @@ function App() {
   const [user, setUser] = useState(()=> auth.currentUser)
   const [initializing, setInitializing] = useState(true)
 
-  useEffect(()=> {
+  useEffect(()=> {//creates an onAuthStateChange listener. Assigns user data if any to the state.
     const unsubscribe = auth.onAuthStateChanged(user => {
       if(user) {
         setUser(user)
@@ -31,10 +31,10 @@ function App() {
       }
     })
 
-    return unsubscribe
+    return unsubscribe//cleans up listener
   },[])
 
-  const signInWithGoogle = async () =>{
+  const signInWithGoogle = async () =>{//enables a login with google window
     const provider = new firebase.auth.GoogleAuthProvider()
     auth.useDeviceLanguage()
 
@@ -53,7 +53,7 @@ function App() {
     <div className="App">
       <Header user={user}/>
         {
-          user ? (
+          user ? (//if there is no user mount the sign in with google button
             null
           ) : (
             <div className='login-button-container'>
@@ -62,7 +62,9 @@ function App() {
             
           )
         }
-      {user ? (<Channel db={db} user={user}/>): null}
+      {
+        user ? (<Channel db={db} user={user}/>): null //if there is a user mount the channel component.
+      }
     </div>
   );
 }
