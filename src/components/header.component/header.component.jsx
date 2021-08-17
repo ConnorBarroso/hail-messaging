@@ -21,6 +21,7 @@ const Header = (user) => {
     }
     
     
+    
     return(
        <div className='header'>
            <div className='title-container'>
@@ -30,10 +31,7 @@ const Header = (user) => {
         
        
             <div className='button-container'>
-                {
-                    //mount the logout button when there is a user. 
-                    user && (<LoginLogout className='button' onClick={logout}>Logout</LoginLogout>) && null
-                }
+                <LoginLogout className='button' onClick={logout}>Logout</LoginLogout>
             </div> 
         
     </div> 
